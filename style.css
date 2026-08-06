@@ -27,7 +27,11 @@ html {
 
 body {
     font-family: 'Inter', system-ui, sans-serif;
-    background-color: var(--color-bg);
+    background-color: #07090f;
+    background-image:
+        radial-gradient(circle at 15% 10%, rgba(255, 159, 252, 0.18), transparent 18%),
+        radial-gradient(circle at 90% 20%, rgba(82, 39, 255, 0.14), transparent 22%),
+        radial-gradient(circle at 25% 80%, rgba(100, 216, 203, 0.12), transparent 20%);
     color: var(--color-text);
     line-height: 1.7;
     font-size: 16px;
@@ -126,10 +130,46 @@ ul {
 
 /*  Hero  */
 .hero {
+    position: relative;
+    overflow: hidden;
     padding: 120px 0 100px;
 }
 
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(255, 159, 252, 0.22), transparent 24%),
+                radial-gradient(circle at bottom right, rgba(82, 39, 255, 0.18), transparent 30%);
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.grainient-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    background: linear-gradient(135deg, rgba(10, 13, 23, 0.92), rgba(16, 22, 45, 0.85) 45%, rgba(21, 27, 56, 0.72));
+    box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.45);
+    animation: grainientShift 18s ease-in-out infinite alternate;
+}
+
+.grainient-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.00) 20%, rgba(255,255,255,0.00) 80%, rgba(255,255,255,0.03) 100%);
+    opacity: 0.2;
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
 .hero-container {
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -637,5 +677,17 @@ ul {
     .btn {
         width: 100%;
         text-align: center;
+    }
+}
+
+@keyframes grainientShift {
+    0% {
+        transform: translate3d(0%, 0%, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(-5%, 3%, 0) scale(1.04);
+    }
+    100% {
+        transform: translate3d(4%, -4%, 0) scale(1.02);
     }
 }
