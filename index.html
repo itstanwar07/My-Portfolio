@@ -1,262 +1,560 @@
-<!DOCTYPE html>
-<html lang="en">
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap");
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mayur Tanwar — Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
+:root {
+  --bg: #07080f;
+  --card: #0d0f1e;
+  --text: #e2e4ef;
+  --muted: #8b8fa8;
+  --dim: #4a4d65;
+  --violet: #7c3aed;
+  --cyan: #22d3ee;
+}
 
-<body>
+* { box-sizing: border-box; }
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <span class="nav-logo">Mayur Tanwar</span>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+html, body {
+  height: 100%;
+  margin: 0;
+}
 
-    <!-- Hero -->
-    <section class="hero" id="about">
-        <div class="grainient-container"></div>
-        <div class="container hero-container">
-            <div class="hero-text">
-                <p class="hero-greeting">Hi, I'm</p>
-                <h1 class="hero-name">Mayur Tanwar</h1>
-                <p class="hero-tagline">Web Developer &amp; AI/ML Enthusiast</p>
-                <p class="hero-desc">
-                    B.Tech Computer Science student at Gurukula Kangri Vishwavidyalaya, Haridwar.
-                    I build distributed backend systems, integrate AI pipelines, and explore
-                    the intersection of software engineering and machine learning.
-                </p>
-                <div class="hero-actions">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-outline">Get in Touch</a>
-                </div>
-            </div>
-            <div class="hero-image-wrap">
-                <img src="images/Profile.jpeg" alt="Mayur Tanwar" class="hero-photo" />
-            </div>
-        </div>
-    </section>
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+  min-height: 100vh;
+}
 
-    <!-- Skills -->
-    <section class="section" id="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
+img { max-width: 100%; display: block; }
+button { font-family: inherit; }
 
-                <div class="skill-card">
-                    <div class="skill-icon"></div>
-                    <h3>Backend &amp; APIs</h3>
-                    <p>Java (Spring Boot), Python (Flask, FastAPI), RESTful API design, Microservices Architecture</p>
-                </div>
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(124, 58, 237, 0.35); border-radius: 2px; }
+::selection { background: rgba(124, 58, 237, 0.35); }
 
-                <div class="skill-card">
-                    <div class="skill-icon"></div>
-                    <h3>Databases</h3>
-                    <p>PostgreSQL, Redis, SQL, MongoDB (fundamentals)</p>
-                </div>
+/* ── keyframes ── */
+@keyframes cubeRotate {
+  from { transform: rotateX(20deg) rotateY(0deg); }
+  to   { transform: rotateX(20deg) rotateY(360deg); }
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-20px); }
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.12; }
+  50%      { opacity: 0.3; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
-                <div class="skill-card">
-                    <div class="skill-icon"></div>
-                    <h3>Tools &amp; DevOps</h3>
-                    <p>Docker, Git, Linux, RabbitMQ, Jupyter Notebook, VS Code</p>
-                </div>
+/* ── nav ── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+.nav.scrolled {
+  background: rgba(7, 8, 15, 0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(124, 58, 237, 0.12);
+}
+.nav-logo {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 0.25em;
+  color: var(--violet);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex;
+  gap: 36px;
+}
+.nav-link {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.nav-link.active { color: var(--cyan); }
 
-                <div class="skill-card">
-                    <div class="skill-icon"></div>
-                    <h3>Languages</h3>
-                    <p>Python, Java, C, SQL, JavaScript (fundamentals)</p>
-                </div>
+/* ── hero ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 40px 60px;
+  overflow: hidden;
+}
+.hero-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+.glow-violet {
+  position: absolute; pointer-events: none;
+  width: 700px; height: 700px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.2) 0%, transparent 68%);
+  top: -5%; right: -12%;
+  animation: glowPulse 7s ease-in-out infinite;
+}
+.glow-cyan {
+  position: absolute; pointer-events: none;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.1) 0%, transparent 70%);
+  bottom: 10%; left: 5%;
+  animation: glowPulse 9s ease-in-out infinite;
+  animation-delay: 3s;
+}
 
-                <div class="skill-card">
-                    <div class="skill-icon"></div>
-                    <h3>AI / ML</h3>
-                    <p>LLM Integration (Gemini), Prompt Engineering, Generative AI, NLP, Machine Learning</p>
-                </div>
+.cube {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: cubeRotate 20s linear infinite;
+}
+.cube-face {
+  position: absolute;
+  border: 1px solid rgba(124, 58, 237, 0.4);
+}
+.cube-wrap-1 { position: absolute; top: 14%; right: 10%; animation: floatY 7s ease-in-out infinite; }
+.cube-wrap-2 { position: absolute; bottom: 22%; right: 32%; animation: floatY 9s ease-in-out infinite; animation-delay: 2.5s; }
+.cube-wrap-3 { position: absolute; top: 55%; right: 22%; animation: floatY 6s ease-in-out infinite; animation-delay: 1s; }
 
-                <div class="skill-card expanding">
-                    <div class="skill-icon"></div>
-                    <h3>Currently Learning</h3>
-                    <p>React.js, Node.js / Express.js, Tailwind CSS, MongoDB Atlas</p>
-                </div>
+.hero-text {
+  animation: fadeUp 1s ease-out both;
+  max-width: 860px;
+  position: relative;
+}
+.hero-kicker {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  color: var(--cyan);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero-title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 900;
+  font-size: clamp(5rem, 13vw, 12rem);
+  letter-spacing: -0.02em;
+  line-height: 0.88;
+  margin: 0 0 32px;
+  background: linear-gradient(135deg, #e2e4ef 0%, #a78bfa 50%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+}
+.hero-desc {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 480px;
+  margin: 0 0 40px;
+}
+.hero-actions { display: flex; gap: 16px; }
 
-            </div>
-        </div>
-    </section>
+.btn-primary {
+  padding: 14px 32px;
+  border-radius: 999px;
+  background: var(--violet);
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 32px rgba(124, 58, 237, 0.45);
+}
+.btn-secondary {
+  padding: 14px 32px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.9rem;
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.btn-secondary:hover {
+  transform: scale(1.04);
+  border-color: rgba(124, 58, 237, 0.8);
+}
 
-    <!-- Projects -->
-    <section class="section section-alt" id="projects">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
+.scroll-cue {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  color: var(--dim);
+  animation: floatY 2.2s ease-in-out infinite;
+}
+.scroll-cue span {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
 
-                <div class="project-card">
-                    <div class="project-header">
-                        <div>
-                            <h3>MedDoc Hub</h3>
-                            <span class="project-tag">Full-Stack Microservices</span>
-                        </div>
-                        <span class="project-status status-live">Completed</span>
-                    </div>
-                    <p class="project-desc">
-                        A medical research validator built as a distributed microservices system.
-                        Architected with 4 Java Spring Boot backend services and 5 Python Flask AI
-                        validation services connected through RESTful APIs.
-                    </p>
-                    <ul class="project-points">
-                        <li>PostgreSQL data layer with Redis caching and RabbitMQ messaging</li>
-                        <li>All services containerized with Docker for deployment</li>
-                        <li>Admin panel supporting validation across text, image, statistics, plagiarism, and
-                            drug-safety checks</li>
-                    </ul>
-                    <div class="project-tech">
-                        <span>Java</span><span>Spring Boot</span><span>Python</span><span>Flask</span>
-                        <span>PostgreSQL</span><span>Redis</span><span>RabbitMQ</span><span>Docker</span>
-                    </div>
-                </div>
+/* ── generic section ── */
+section { padding: 120px 40px; border-top: 1px solid rgba(124, 58, 237, 0.1); position: relative; }
+.section-kicker {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.section-title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.9;
+  margin: 0;
+}
 
-            </div>
-        </div>
-    </section>
+/* ── projects ── */
+.projects-head {
+  display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 64px; flex-wrap: wrap; gap: 16px;
+}
+.projects-head .section-title { color: var(--violet); font-size: clamp(3rem, 7vw, 5.5rem); }
+.projects-num {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 7rem;
+  font-weight: 900;
+  opacity: 0.08;
+  color: var(--violet);
+  line-height: 1;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+}
+.project-card {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.15s ease-out;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+.project-media {
+  position: relative;
+  overflow: hidden;
+  height: 240px;
+  background: var(--card);
+}
+.project-media img {
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.5;
+  transform: scale(1);
+  transition: transform 0.7s, opacity 0.7s;
+}
+.project-card:hover .project-media img {
+  opacity: 0.72;
+  transform: scale(1.05);
+}
+.project-media-overlay { position: absolute; inset: 0; }
+.project-tags {
+  position: absolute; bottom: 16px; left: 16px;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.project-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+.project-body { padding: 24px; background: var(--card); }
+.project-body-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; gap: 12px; }
+.project-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+}
+.project-title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.85rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0;
+  line-height: 1;
+}
+.project-arrow {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 999px;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+.project-desc { font-size: 0.9rem; line-height: 1.6; color: var(--muted); margin: 0; }
 
-    <!-- Experience -->
-    <section class="section" id="experience">
-        <div class="container">
-            <h2 class="section-title">Experience &amp; Education</h2>
-            <div class="timeline">
+/* ── skills ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 80px;
+  align-items: start;
+}
+.skills-kicker { color: var(--cyan); }
+.skills-title { font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 48px; }
+.skill-rows { display: flex; flex-direction: column; gap: 28px; }
+.skill-row-top { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.skill-name { font-size: 0.9rem; color: var(--text); }
+.skill-pct { font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--violet); }
+.skill-track { height: 1px; background: rgba(124, 58, 237, 0.15); position: relative; overflow: hidden; }
+.skill-fill { position: absolute; left: 0; top: 0; height: 100%; background: linear-gradient(90deg, #7c3aed, #22d3ee); }
 
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>Machine Learning Intern</h3>
-                                <p class="timeline-company">Krutanic Solutions, Bengaluru</p>
-                            </div>
-                            <span class="timeline-date">Jan 2026 – Mar 2026</span>
-                        </div>
-                        <ul class="timeline-points">
-                            <li>Built and evaluated supervised and unsupervised ML models on real-world datasets as part
-                                of a structured, team-based workflow.</li>
-                            <li>Applied Python-based engineering practices including data preprocessing, model
-                                evaluation, and iterative testing.</li>
-                            <li>Awarded Certificate of Internship (Enrollment Code: KRT_3000100).</li>
-                        </ul>
-                    </div>
-                </div>
+.stack-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.stack-tag {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(124, 58, 237, 0.28);
+  color: var(--muted);
+  background: rgba(124, 58, 237, 0.05);
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  cursor: default;
+}
+.stack-tag:hover {
+  color: var(--text);
+  border-color: rgba(124, 58, 237, 0.6);
+  background: rgba(124, 58, 237, 0.1);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+.stat-num {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 900;
+  font-size: 3rem;
+  color: var(--violet);
+  line-height: 1;
+}
+.stat-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
 
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>B.Tech — Computer Science &amp; Engineering</h3>
-                                <p class="timeline-company">Gurukula Kangri Vishwavidyalaya, Haridwar</p>
-                            </div>
-                            <span class="timeline-date">2024 – 2028</span>
-                        </div>
-                        <ul class="timeline-points">
-                            <li>Relevant Coursework: Data Structures &amp; Algorithms, Object-Oriented Programming,
-                                DBMS, Operating Systems.</li>
-                        </ul>
-                    </div>
-                </div>
+/* ── about ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 80px;
+  align-items: center;
+}
+.about-photo-wrap { position: relative; }
+.about-photo-glow {
+  position: absolute; inset: -16px; border-radius: 24px;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.18), rgba(6, 182, 212, 0.1));
+  filter: blur(28px);
+  pointer-events: none;
+}
+.about-photo {
+  position: relative; border-radius: 16px; overflow: hidden; background: var(--card);
+}
+.about-photo img {
+  width: 100%; height: 480px; object-fit: cover;
+  opacity: 0.82;
+  mix-blend-mode: luminosity;
+}
+.about-photo-shade {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, #07080f 0%, transparent 55%);
+}
+.about-photo-loc {
+  position: absolute; bottom: 20px; left: 20px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem; letter-spacing: 0.2em;
+  color: var(--cyan); text-transform: uppercase;
+  display: flex; align-items: center; gap: 4px;
+}
+.about-kicker { color: var(--violet); }
+.about-title { font-size: clamp(2.8rem, 5vw, 4.5rem); margin-bottom: 32px; }
+.about-copy { display: flex; flex-direction: column; gap: 18px; font-size: 0.95rem; line-height: 1.75; color: var(--muted); margin: 0; }
+.about-links { display: flex; gap: 28px; margin-top: 36px; }
+.about-link {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.85rem; color: var(--muted);
+  background: none; border: none; cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.about-link:hover { color: var(--cyan); }
 
-            </div>
-        </div>
-    </section>
+/* ── contact ── */
+#contact { text-align: center; overflow: hidden; }
+.contact-glow-1 {
+  position: absolute; pointer-events: none;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.09) 0%, transparent 70%);
+  bottom: -20%; left: -8%;
+}
+.contact-glow-2 {
+  position: absolute; pointer-events: none;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+  top: -10%; right: -5%;
+}
+.contact-inner { max-width: 640px; margin: 0 auto; position: relative; }
+.contact-kicker { color: var(--cyan); }
+.contact-title { font-size: clamp(4rem, 10vw, 8rem); line-height: 0.88; margin-bottom: 24px; }
+.contact-desc { font-size: 0.95rem; color: var(--muted); margin-bottom: 48px; line-height: 1.7; }
 
-    <!-- Certifications -->
-    <section class="section section-alt" id="certifications">
-        <div class="container">
-            <h2 class="section-title">Certifications</h2>
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <div class="cert-icon"></div>
-                    <div>
-                        <h4>Certificate of Internship — Machine Learning</h4>
-                        <p>Krutanic Solutions &nbsp;·&nbsp; Jan – Mar 2026</p>
-                    </div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon"></div>
-                    <div>
-                        <h4>Certificate of Training Completion — Machine Learning</h4>
-                        <p>Krutanic Solutions &nbsp;·&nbsp; Jan 2026</p>
-                    </div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon"></div>
-                    <div>
-                        <h4>Generative AI in Action</h4>
-                        <p>Online Certification</p>
-                    </div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon"></div>
-                    <div>
-                        <h4>Claude Platform 101</h4>
-                        <p>Certificate of completion</p>
-                    </div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon"></div>
-                    <div>
-                        <h4>JPMorganChase - Software Engineering Job Simulation </h4>
-                        <p>Virtual Internship Certificate</p>
-                    </div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon"></div>
-                    <div>
-                        <h4>Deloitte Australia - Technology Job Simulation</h4>
-                        <p>Virtual Internship Certificate</p>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
+.contact-success {
+  padding: 48px 32px; border-radius: 16px;
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  background: rgba(34, 211, 238, 0.04);
+}
+.contact-success-title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 900; font-size: 2.5rem; text-transform: uppercase;
+  color: var(--cyan); margin: 0 0 8px;
+}
+.contact-success-sub { font-size: 0.85rem; color: var(--muted); margin: 0; }
 
-    <!-- Contact -->
-    <section class="section" id="contact">
-        <div class="container contact-container">
-            <h2 class="section-title">Get in Touch</h2>
-            <p class="contact-desc">
-                I'm open to internships, collaborations, and interesting projects.
-                Feel free to reach out.
-            </p>
-            <div class="contact-links">
-                <a href="mailto:tanwarmayur2004@gmail.com" class="contact-link">
-                    <span class="contact-link-icon"></span>
-                    tanwarmayur2004@gmail.com
-                </a>
-                <a href="https://linkedin.com/in/mayur-tanwar-242104327" target="_blank" rel="noopener noreferrer"
-                    class="contact-link">
-                    <span class="contact-link-icon"></span>
-                    linkedin.com/in/mayur-tanwar-242104327
-                </a>
-            </div>
-        </div>
-    </section>
+form#contact-form { text-align: left; display: flex; flex-direction: column; gap: 16px; }
+.field-label {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem; letter-spacing: 0.25em;
+  color: var(--violet); text-transform: uppercase; margin-bottom: 8px;
+}
+.field-input, .field-textarea {
+  width: 100%; padding: 13px 18px; border-radius: 12px;
+  background: var(--card); border: 1px solid rgba(124, 58, 237, 0.2);
+  color: var(--text); font-size: 0.9rem;
+  font-family: "DM Sans", sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.field-input:focus, .field-textarea:focus { border-color: rgba(124, 58, 237, 0.65); }
+.field-textarea { resize: none; }
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>© 2026 Mayur Tanwar. Built with HTML &amp; CSS.</p>
-    </footer>
+.btn-submit {
+  width: 100%; padding: 15px; border-radius: 12px;
+  background: var(--violet); color: #fff;
+  font-weight: 500; font-size: 0.95rem;
+  border: none; cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-submit:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 28px rgba(124, 58, 237, 0.5);
+}
 
-</body>
+.contact-email-row { display: flex; justify-content: center; margin-top: 48px; }
+.contact-email {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.85rem; color: var(--muted);
+  text-decoration: none; transition: color 0.2s;
+}
+.contact-email:hover { color: var(--cyan); }
 
-</html>
+/* ── footer ── */
+footer {
+  padding: 28px 40px;
+  border-top: 1px solid rgba(124, 58, 237, 0.1);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 8px;
+}
+.footer-logo {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 900; font-size: 1rem; letter-spacing: 0.25em;
+  color: var(--violet); text-transform: uppercase;
+}
+.footer-copy {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem; color: var(--dim); letter-spacing: 0.1em;
+}
+
+/* icon helper */
+.icon { display: inline-block; vertical-align: middle; }
+
+@media (max-width: 640px) {
+  .nav, section { padding-left: 20px; padding-right: 20px; }
+  .hero { padding-left: 20px; padding-right: 20px; }
+}
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  #loader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+  }
+
+  #progress-container {
+    width: 250px;
+    height: 8px;
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 15px;
+  }
+
+  #progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #7508bd;
+    transition: width 0.1s linear;
+  }
+
+  #percent-text {
+    color: rgb(138, 240, 223);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 20;
+  }
+
+  #content {
+    display: none;
+  }
+
+  #loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
