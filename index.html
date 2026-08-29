@@ -1,560 +1,221 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mayur Tanwar — Portfolio</title>
+  <meta name="description" content="Showcase 3D projects with an interactive portfolio designed for artists and designers to display their work and attract potential clients." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-:root {
-  --bg: #07080f;
-  --card: #0d0f1e;
-  --text: #e2e4ef;
-  --muted: #8b8fa8;
-  --dim: #4a4d65;
-  --violet: #7c3aed;
-  --cyan: #22d3ee;
-}
+  <!-- ── NAV ── -->
+  <nav class="nav" id="nav">
+    <!-- Loader -->
+  <div id="loader">
+    <div id="percent-text">0%</div>
+    <div id="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+  </div>
+    <button class="nav-logo" data-scroll="home">MT</button>
+    <div class="nav-links" id="nav-links">
+      <button class="nav-link" data-scroll="projects">projects</button>
+      <button class="nav-link" data-scroll="skills">skills</button>
+      <button class="nav-link" data-scroll="about">about</button>
+      <button class="nav-link" data-scroll="contact">contact</button>
+    </div>
+  </nav>
 
-* { box-sizing: border-box; }
+  <!-- ── HERO ── -->
+  <section id="home" class="hero" style="border-top:none;">
+    <div class="hero-grid"></div>
+    <div class="glow-violet"></div>
+    <div class="glow-cyan"></div>
 
-html, body {
-  height: 100%;
-  margin: 0;
-}
+    <div class="cube-wrap-1"><div class="cube" style="width:160px;height:160px;">
+      <div class="cube-face" style="width:160px;height:160px;background:rgba(124,58,237,0.04);transform:translateZ(80px);"></div>
+      <div class="cube-face" style="width:160px;height:160px;background:rgba(34,211,238,0.03);transform:rotateY(180deg) translateZ(80px);"></div>
+      <div class="cube-face" style="width:160px;height:160px;background:rgba(124,58,237,0.03);transform:rotateY(-90deg) translateZ(80px);"></div>
+      <div class="cube-face" style="width:160px;height:160px;background:rgba(34,211,238,0.03);transform:rotateY(90deg) translateZ(80px);"></div>
+      <div class="cube-face" style="width:160px;height:160px;background:rgba(124,58,237,0.05);transform:rotateX(90deg) translateZ(80px);"></div>
+      <div class="cube-face" style="width:160px;height:160px;background:rgba(34,211,238,0.03);transform:rotateX(-90deg) translateZ(80px);"></div>
+    </div></div>
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: "DM Sans", sans-serif;
-  min-height: 100vh;
-}
+    <div class="cube-wrap-2"><div class="cube" style="width:56px;height:56px;">
+      <div class="cube-face" style="width:56px;height:56px;background:rgba(124,58,237,0.04);transform:translateZ(28px);"></div>
+      <div class="cube-face" style="width:56px;height:56px;background:rgba(34,211,238,0.03);transform:rotateY(180deg) translateZ(28px);"></div>
+      <div class="cube-face" style="width:56px;height:56px;background:rgba(124,58,237,0.03);transform:rotateY(-90deg) translateZ(28px);"></div>
+      <div class="cube-face" style="width:56px;height:56px;background:rgba(34,211,238,0.03);transform:rotateY(90deg) translateZ(28px);"></div>
+      <div class="cube-face" style="width:56px;height:56px;background:rgba(124,58,237,0.05);transform:rotateX(90deg) translateZ(28px);"></div>
+      <div class="cube-face" style="width:56px;height:56px;background:rgba(34,211,238,0.03);transform:rotateX(-90deg) translateZ(28px);"></div>
+    </div></div>
 
-img { max-width: 100%; display: block; }
-button { font-family: inherit; }
+    <div class="cube-wrap-3"><div class="cube" style="width:80px;height:80px;">
+      <div class="cube-face" style="width:80px;height:80px;background:rgba(124,58,237,0.04);transform:translateZ(40px);"></div>
+      <div class="cube-face" style="width:80px;height:80px;background:rgba(34,211,238,0.03);transform:rotateY(180deg) translateZ(40px);"></div>
+      <div class="cube-face" style="width:80px;height:80px;background:rgba(124,58,237,0.03);transform:rotateY(-90deg) translateZ(40px);"></div>
+      <div class="cube-face" style="width:80px;height:80px;background:rgba(34,211,238,0.03);transform:rotateY(90deg) translateZ(40px);"></div>
+      <div class="cube-face" style="width:80px;height:80px;background:rgba(124,58,237,0.05);transform:rotateX(90deg) translateZ(40px);"></div>
+      <div class="cube-face" style="width:80px;height:80px;background:rgba(34,211,238,0.03);transform:rotateX(-90deg) translateZ(40px);"></div>
+    </div></div>
 
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(124, 58, 237, 0.35); border-radius: 2px; }
-::selection { background: rgba(124, 58, 237, 0.35); }
+    <div class="hero-text">
+      <p class="hero-kicker">Web Dev &amp; AI Ml Engineer</p>
+      <h1 class="hero-title">Mayur<br />Tanwar</h1>
+      <p class="hero-desc">I build immersive 3D experiences, kinetic interfaces, and design systems that bridge the gap between code and craft.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" data-scroll="projects">View Work</button>
+        <button class="btn-secondary" data-scroll="contact">Get In Touch</button>
+      </div>
+    </div>
 
-/* ── keyframes ── */
-@keyframes cubeRotate {
-  from { transform: rotateX(20deg) rotateY(0deg); }
-  to   { transform: rotateX(20deg) rotateY(360deg); }
-}
-@keyframes floatY {
-  0%, 100% { transform: translateY(0px); }
-  50%      { transform: translateY(-20px); }
-}
-@keyframes glowPulse {
-  0%, 100% { opacity: 0.12; }
-  50%      { opacity: 0.3; }
-}
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(36px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+    <div class="scroll-cue">
+      <span>scroll</span>
+      <svg class="icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </div>
+  </section>
 
-/* ── nav ── */
-.nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 40px;
-  background: transparent;
-  border-bottom: 1px solid transparent;
-  transition: all 0.3s ease;
-}
-.nav.scrolled {
-  background: rgba(7, 8, 15, 0.88);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(124, 58, 237, 0.12);
-}
-.nav-logo {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 900;
-  font-size: 1.1rem;
-  letter-spacing: 0.25em;
-  color: var(--violet);
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-transform: uppercase;
-}
-.nav-links {
-  display: flex;
-  gap: 36px;
-}
-.nav-link {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--muted);
-  transition: color 0.2s;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-.nav-link.active { color: var(--cyan); }
+  <!-- ── PROJECTS ── -->
+  <section id="projects">
+    <div class="projects-head">
+      <div>
+        <p class="section-kicker" style="color:#7c3aed;">Selected Work</p>
+        <h2 class="section-title projects-head-title" style="font-size:clamp(3rem,7vw,5.5rem);color:#e2e4ef;">PROJECTS</h2>
+      </div>
+      <span class="projects-num">04</span>
+    </div>
+    <div class="projects-grid" id="projects-grid"></div>
+  </section>
 
-/* ── hero ── */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 40px 60px;
-  overflow: hidden;
-}
-.hero-grid {
-  position: absolute; inset: 0; pointer-events: none;
-  background-image:
-    linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 58, 237, 0.05) 1px, transparent 1px);
-  background-size: 64px 64px;
-}
-.glow-violet {
-  position: absolute; pointer-events: none;
-  width: 700px; height: 700px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.2) 0%, transparent 68%);
-  top: -5%; right: -12%;
-  animation: glowPulse 7s ease-in-out infinite;
-}
-.glow-cyan {
-  position: absolute; pointer-events: none;
-  width: 400px; height: 400px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(34, 211, 238, 0.1) 0%, transparent 70%);
-  bottom: 10%; left: 5%;
-  animation: glowPulse 9s ease-in-out infinite;
-  animation-delay: 3s;
-}
+  <!-- ── SKILLS ── -->
+  <section id="skills">
+    <div class="skills-grid">
+      <div>
+        <p class="section-kicker skills-kicker">Capabilities</p>
+        <h2 class="section-title skills-title" style="color:#e2e4ef;">SKILLS</h2>
+        <div class="skill-rows" id="skill-rows"></div>
+      </div>
 
-.cube {
-  position: relative;
-  transform-style: preserve-3d;
-  animation: cubeRotate 20s linear infinite;
-}
-.cube-face {
-  position: absolute;
-  border: 1px solid rgba(124, 58, 237, 0.4);
-}
-.cube-wrap-1 { position: absolute; top: 14%; right: 10%; animation: floatY 7s ease-in-out infinite; }
-.cube-wrap-2 { position: absolute; bottom: 22%; right: 32%; animation: floatY 9s ease-in-out infinite; animation-delay: 2.5s; }
-.cube-wrap-3 { position: absolute; top: 55%; right: 22%; animation: floatY 6s ease-in-out infinite; animation-delay: 1s; }
+      <div>
+        <p class="section-kicker skills-kicker">Tools &amp; Software</p>
+        <h2 class="section-title skills-title" style="color:#e2e4ef;">STACK</h2>
+        <div class="stack-tags" id="stack-tags"></div>
+        <div class="stats-grid" id="stats-grid"></div>
+      </div>
+    </div>
+  </section>
 
-.hero-text {
-  animation: fadeUp 1s ease-out both;
-  max-width: 860px;
-  position: relative;
-}
-.hero-kicker {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.35em;
-  color: var(--cyan);
-  text-transform: uppercase;
-  margin-bottom: 24px;
-}
-.hero-title {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 900;
-  font-size: clamp(5rem, 13vw, 12rem);
-  letter-spacing: -0.02em;
-  line-height: 0.88;
-  margin: 0 0 32px;
-  background: linear-gradient(135deg, #e2e4ef 0%, #a78bfa 50%, #22d3ee 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-transform: uppercase;
-}
-.hero-desc {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--muted);
-  max-width: 480px;
-  margin: 0 0 40px;
-}
-.hero-actions { display: flex; gap: 16px; }
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-photo-wrap">
+        <div class="about-photo-glow"></div>
+        <div class="about-photo">
+          <img src="img.jpg" alt="Mayur Tanwar, Full Stack ML Engineer" />
+          <div class="about-photo-shade"></div>
+          <div class="about-photo-loc">
+            <svg class="icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Haridwar, India
+          </div>
+        </div>
+      </div>
 
-.btn-primary {
-  padding: 14px 32px;
-  border-radius: 999px;
-  background: var(--violet);
-  color: #fff;
-  font-weight: 500;
-  font-size: 0.9rem;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.btn-primary:hover {
-  transform: scale(1.04);
-  box-shadow: 0 0 32px rgba(124, 58, 237, 0.45);
-}
-.btn-secondary {
-  padding: 14px 32px;
-  border-radius: 999px;
-  background: transparent;
-  color: var(--text);
-  font-weight: 500;
-  font-size: 0.9rem;
-  border: 1px solid rgba(124, 58, 237, 0.4);
-  cursor: pointer;
-  transition: transform 0.2s, border-color 0.2s;
-}
-.btn-secondary:hover {
-  transform: scale(1.04);
-  border-color: rgba(124, 58, 237, 0.8);
-}
+      <div>
+        <p class="section-kicker about-kicker">About</p>
+        <h2 class="section-title about-title" style="color:#e2e4ef;">MAKING<br />THINGS<br />MOVE</h2>
+        <div class="about-copy">
+          <p>I’m a Computer Science and Engineering student passionate about Software Development, Data Structures & Algorithms, and Artificial Intelligence. I work with Java, Python, C, SQL, Machine Learning, Generative AI, and LLMs, while continuously strengthening my core Computer Science fundamentals.</p>
+          <p>I believe in learning by building and solving real problems. I regularly practice DSA on LeetCode and GeeksforGeeks and have worked on projects involving Flask, Machine Learning, Data Science, and practical web applications. I use Git and GitHub to build, manage, and showcase my projects and coding journey.</p>
+          <p>Currently, I’m exploring the intersection of Software Engineering and AI, with a focus on Machine Learning, Generative AI, LLMs, databases, and AI-powered applications. My goal is to build practical solutions while growing into a strong and well-rounded software engineer.</p>
+        </div>
+        <div class="about-links">
+          <a class="about-link" href="https://github.com/itstanwar07" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+            GitHub
+          </a>
+          <a class="about-link" href="https://www.linkedin.com/in/mayur-tanwar-242104327/" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            LinkedIn
+          </a>
+          <a class="about-link" href="Resume_Mayur_Tanwar.pdf" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+            CV
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-.scroll-cue {
-  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 6px;
-  color: var(--dim);
-  animation: floatY 2.2s ease-in-out infinite;
-}
-.scroll-cue span {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-}
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="contact-glow-1"></div>
+    <div class="contact-glow-2"></div>
 
-/* ── generic section ── */
-section { padding: 120px 40px; border-top: 1px solid rgba(124, 58, 237, 0.1); position: relative; }
-.section-kicker {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-.section-title {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 900;
-  text-transform: uppercase;
-  line-height: 0.9;
-  margin: 0;
-}
+    <div class="contact-inner">
+      <p class="section-kicker contact-kicker">Contact</p>
+      <h2 class="section-title contact-title" style="color:#e2e4ef;">LET'S<br />TALK</h2>
+      <p class="contact-desc">Available for select freelance projects and studio collaborations. If you have something interesting, I want to hear about it.</p>
 
-/* ── projects ── */
-.projects-head {
-  display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 64px; flex-wrap: wrap; gap: 16px;
-}
-.projects-head .section-title { color: var(--violet); font-size: clamp(3rem, 7vw, 5.5rem); }
-.projects-num {
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 7rem;
-  font-weight: 900;
-  opacity: 0.08;
-  color: var(--violet);
-  line-height: 1;
-}
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 24px;
-}
-.project-card {
-  border-radius: 16px;
-  overflow: hidden;
-  transition: transform 0.15s ease-out;
-  transform-style: preserve-3d;
-  cursor: pointer;
-}
-.project-media {
-  position: relative;
-  overflow: hidden;
-  height: 240px;
-  background: var(--card);
-}
-.project-media img {
-  width: 100%; height: 100%; object-fit: cover;
-  opacity: 0.5;
-  transform: scale(1);
-  transition: transform 0.7s, opacity 0.7s;
-}
-.project-card:hover .project-media img {
-  opacity: 0.72;
-  transform: scale(1.05);
-}
-.project-media-overlay { position: absolute; inset: 0; }
-.project-tags {
-  position: absolute; bottom: 16px; left: 16px;
-  display: flex; flex-wrap: wrap; gap: 8px;
-}
-.project-tag {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.05em;
-  padding: 3px 8px;
-  border-radius: 999px;
-}
-.project-body { padding: 24px; background: var(--card); }
-.project-body-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; gap: 12px; }
-.project-meta {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin: 0 0 4px;
-}
-.project-title {
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 1.85rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  color: var(--text);
-  margin: 0;
-  line-height: 1;
-}
-.project-arrow {
-  width: 40px; height: 40px;
-  display: flex; align-items: center; justify-content: center;
-  border-radius: 999px;
-  flex-shrink: 0;
-  transition: all 0.3s;
-}
-.project-desc { font-size: 0.9rem; line-height: 1.6; color: var(--muted); margin: 0; }
+      <div id="contact-success" class="contact-success" style="display:none;">
+        <p class="contact-success-title">Message Sent</p>
+        <p class="contact-success-sub">I'll get back to you within 48 hours.</p>
+      </div>
 
-/* ── skills ── */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 80px;
-  align-items: start;
-}
-.skills-kicker { color: var(--cyan); }
-.skills-title { font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 48px; }
-.skill-rows { display: flex; flex-direction: column; gap: 28px; }
-.skill-row-top { display: flex; justify-content: space-between; margin-bottom: 8px; }
-.skill-name { font-size: 0.9rem; color: var(--text); }
-.skill-pct { font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--violet); }
-.skill-track { height: 1px; background: rgba(124, 58, 237, 0.15); position: relative; overflow: hidden; }
-.skill-fill { position: absolute; left: 0; top: 0; height: 100%; background: linear-gradient(90deg, #7c3aed, #22d3ee); }
+      <form id="contact-form">
+        <div>
+          <label class="field-label" for="field-name">name</label>
+          <input class="field-input" type="text" id="field-name" required placeholder="Your name" />
+        </div>
+        <div>
+          <label class="field-label" for="field-email">email</label>
+          <input class="field-input" type="email" id="field-email" required placeholder="your@email.com" />
+        </div>
+        <div>
+          <label class="field-label" for="field-message">message</label>
+          <textarea class="field-textarea" id="field-message" rows="5" required placeholder="Tell me about your project..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send Message</button>
+      </form>
 
-.stack-tags { display: flex; flex-wrap: wrap; gap: 10px; }
-.stack-tag {
-  padding: 8px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(124, 58, 237, 0.28);
-  color: var(--muted);
-  background: rgba(124, 58, 237, 0.05);
-  font-size: 0.85rem;
-  transition: all 0.2s;
-  cursor: default;
-}
-.stack-tag:hover {
-  color: var(--text);
-  border-color: rgba(124, 58, 237, 0.6);
-  background: rgba(124, 58, 237, 0.1);
-}
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 56px;
-}
-.stat-num {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 900;
-  font-size: 3rem;
-  color: var(--violet);
-  line-height: 1;
-}
-.stat-label {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.6rem;
-  color: var(--muted);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-top: 6px;
-}
+      <div class="contact-email-row">
+        <a class="contact-email" href="mailto:alex@voss.studio">
+          <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          tanwarmayur2004@gmail.com
+        </a>
+      </div>
+    </div>
+  </section>
 
-/* ── about ── */
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 80px;
-  align-items: center;
-}
-.about-photo-wrap { position: relative; }
-.about-photo-glow {
-  position: absolute; inset: -16px; border-radius: 24px;
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.18), rgba(6, 182, 212, 0.1));
-  filter: blur(28px);
-  pointer-events: none;
-}
-.about-photo {
-  position: relative; border-radius: 16px; overflow: hidden; background: var(--card);
-}
-.about-photo img {
-  width: 100%; height: 480px; object-fit: cover;
-  opacity: 0.82;
-  mix-blend-mode: luminosity;
-}
-.about-photo-shade {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, #07080f 0%, transparent 55%);
-}
-.about-photo-loc {
-  position: absolute; bottom: 20px; left: 20px;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.6rem; letter-spacing: 0.2em;
-  color: var(--cyan); text-transform: uppercase;
-  display: flex; align-items: center; gap: 4px;
-}
-.about-kicker { color: var(--violet); }
-.about-title { font-size: clamp(2.8rem, 5vw, 4.5rem); margin-bottom: 32px; }
-.about-copy { display: flex; flex-direction: column; gap: 18px; font-size: 0.95rem; line-height: 1.75; color: var(--muted); margin: 0; }
-.about-links { display: flex; gap: 28px; margin-top: 36px; }
-.about-link {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 0.85rem; color: var(--muted);
-  background: none; border: none; cursor: pointer;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.about-link:hover { color: var(--cyan); }
+  <!-- ── FOOTER ── -->
+  <footer>
+    <span class="footer-logo">AV</span>
+    <span class="footer-copy">© 2024 Mayur Tanwar. All rights reserved.</span>
+  </footer>
+    <script>
+    let progress = 0;
+    const bar = document.getElementById('progress-bar');
+    const text = document.getElementById('percent-text');
+    const loader = document.getElementById('loader');
+    const content = document.getElementById('content');
 
-/* ── contact ── */
-#contact { text-align: center; overflow: hidden; }
-.contact-glow-1 {
-  position: absolute; pointer-events: none;
-  width: 500px; height: 500px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(34, 211, 238, 0.09) 0%, transparent 70%);
-  bottom: -20%; left: -8%;
-}
-.contact-glow-2 {
-  position: absolute; pointer-events: none;
-  width: 400px; height: 400px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
-  top: -10%; right: -5%;
-}
-.contact-inner { max-width: 640px; margin: 0 auto; position: relative; }
-.contact-kicker { color: var(--cyan); }
-.contact-title { font-size: clamp(4rem, 10vw, 8rem); line-height: 0.88; margin-bottom: 24px; }
-.contact-desc { font-size: 0.95rem; color: var(--muted); margin-bottom: 48px; line-height: 1.7; }
+    const interval = setInterval(() => {
+      progress += Math.floor(Math.random() * 10) + 1; // random increment
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(interval);
 
-.contact-success {
-  padding: 48px 32px; border-radius: 16px;
-  border: 1px solid rgba(34, 211, 238, 0.3);
-  background: rgba(34, 211, 238, 0.04);
-}
-.contact-success-title {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 900; font-size: 2.5rem; text-transform: uppercase;
-  color: var(--cyan); margin: 0 0 8px;
-}
-.contact-success-sub { font-size: 0.85rem; color: var(--muted); margin: 0; }
+        setTimeout(() => {
+          loader.classList.add('hidden');
+          content.style.display = 'block';
+        }, 300);
+      }
+      bar.style.width = progress + '%';
+      text.innerText = progress + '%';
+    }, 100);
+  </script>
 
-form#contact-form { text-align: left; display: flex; flex-direction: column; gap: 16px; }
-.field-label {
-  display: block;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.6rem; letter-spacing: 0.25em;
-  color: var(--violet); text-transform: uppercase; margin-bottom: 8px;
-}
-.field-input, .field-textarea {
-  width: 100%; padding: 13px 18px; border-radius: 12px;
-  background: var(--card); border: 1px solid rgba(124, 58, 237, 0.2);
-  color: var(--text); font-size: 0.9rem;
-  font-family: "DM Sans", sans-serif;
-  outline: none;
-  transition: border-color 0.2s;
-}
-.field-input:focus, .field-textarea:focus { border-color: rgba(124, 58, 237, 0.65); }
-.field-textarea { resize: none; }
+  <script src="script.js"></script>
+</body>
 
-.btn-submit {
-  width: 100%; padding: 15px; border-radius: 12px;
-  background: var(--violet); color: #fff;
-  font-weight: 500; font-size: 0.95rem;
-  border: none; cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.btn-submit:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 28px rgba(124, 58, 237, 0.5);
-}
-
-.contact-email-row { display: flex; justify-content: center; margin-top: 48px; }
-.contact-email {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 0.85rem; color: var(--muted);
-  text-decoration: none; transition: color 0.2s;
-}
-.contact-email:hover { color: var(--cyan); }
-
-/* ── footer ── */
-footer {
-  padding: 28px 40px;
-  border-top: 1px solid rgba(124, 58, 237, 0.1);
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 8px;
-}
-.footer-logo {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 900; font-size: 1rem; letter-spacing: 0.25em;
-  color: var(--violet); text-transform: uppercase;
-}
-.footer-copy {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.6rem; color: var(--dim); letter-spacing: 0.1em;
-}
-
-/* icon helper */
-.icon { display: inline-block; vertical-align: middle; }
-
-@media (max-width: 640px) {
-  .nav, section { padding-left: 20px; padding-right: 20px; }
-  .hero { padding-left: 20px; padding-right: 20px; }
-}
- * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  #loader {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: #111;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease;
-  }
-
-  #progress-container {
-    width: 250px;
-    height: 8px;
-    background: #333;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-top: 15px;
-  }
-
-  #progress-bar {
-    width: 0%;
-    height: 100%;
-    background: #7508bd;
-    transition: width 0.1s linear;
-  }
-
-  #percent-text {
-    color: rgb(138, 240, 223);
-    font-family: "JetBrains Mono", monospace;
-    font-size: 20;
-  }
-
-  #content {
-    display: none;
-  }
-
-  #loader.hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
+</html>
