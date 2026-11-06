@@ -4,14 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Selected software, machine learning, and web projects by Mayur Tanwar." />
+  <meta name="theme-color" content="#f4f3ef" />
   <title>Projects — Mayur Tanwar</title>
-  <link rel="stylesheet" href="portfolio.css" />
+  <link rel="stylesheet" href="portfolio.css?v=reference-ui" />
 </head>
 <body>
   <nav class="nav" aria-label="Main navigation">
     <a class="nav-logo" href="index.html" aria-label="Mayur Tanwar home">MT<span>.</span></a>
     <div class="nav-links">
-      <a class="nav-link" href="projects.html">Projects</a>
+      <a class="nav-link" href="projects.html" aria-current="page">Projects</a>
       <a class="nav-link" href="skills.html">Skills</a>
       <a class="nav-link" href="about.html">About</a>
       <a class="nav-link" href="contact.html">Contact</a>
@@ -20,7 +21,7 @@
   <main class="page-shell">
     <header class="page-header" data-reveal>
       <p class="eyebrow">A few things I’ve built</p>
-      <h1 class="page-title">Selected<br />projects<span>.</span></h1>
+      <h1 class="page-title" data-text-effect data-text-effect-delay="0.25">Selected<br />projects<span>.</span></h1>
       <p class="page-intro">A mix of machine learning experiments, useful web tools, and problem-solving work. Choose a category to explore.</p>
       <p class="live-note">Currently exploring <span class="rotating-text" data-rotate-text data-phrases="machine learning|AI applications|useful web tools">machine learning</span></p>
     </header>
@@ -31,29 +32,111 @@
       <button class="filter-button" type="button" data-filter="algorithms" aria-pressed="false">Algorithms</button>
     </div>
     <div class="project-grid">
-      <a class="project-card" href="https://github.com/itstanwar07/Diwali_Sales_Analysis" target="_blank" rel="noopener noreferrer" data-category="machine-learning" data-reveal>
-        <div><span class="project-number">01 / MACHINE LEARNING</span><h2>Diwali Sales Analysis</h2><p>Exploring festival sales data to uncover useful customer and product insights with Python.</p></div>
-        <div class="project-bottom"><div class="tag-list"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span></div><span class="card-arrow" aria-hidden="true">↗</span></div>
-      </a>
-      <a class="project-card" href="https://github.com/itstanwar07/car_price_prediction-ml" target="_blank" rel="noopener noreferrer" data-category="machine-learning" data-reveal>
-        <div><span class="project-number">02 / MACHINE LEARNING</span><h2>Car Price Predictor</h2><p>A machine learning project that estimates a car’s price from its features.</p></div>
-        <div class="project-bottom"><div class="tag-list"><span class="tag">Python</span><span class="tag">Machine learning</span></div><span class="card-arrow" aria-hidden="true">↗</span></div>
-      </a>
-      <article class="project-card" data-category="web" data-reveal>
-        <div><span class="project-number">03 / WEB</span><h2>GoWithPlan</h2><p>A web-based planner for organizing tasks, setting reminders, and keeping track of progress.</p></div>
-        <div class="project-bottom"><div class="tag-list"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div><span class="card-arrow" aria-hidden="true">↗</span></div>
+      <article class="project-card disclosure-card" data-category="machine-learning" data-reveal>
+        <button class="project-disclosure-trigger" type="button" aria-expanded="false" aria-controls="project-details-sales">
+          <span class="project-art project-art--sales" aria-hidden="true">
+            <span class="project-art-label">DATA / 001</span><span class="art-bars"><i></i><i></i><i></i><i></i><i></i></span><span class="project-art-caption">FESTIVAL SALES <b>↑ INSIGHTS</b></span>
+          </span>
+          <span class="project-preview">
+            <span class="project-number">01 / MACHINE LEARNING</span>
+            <span class="project-preview-title">Diwali Sales Analysis</span>
+            <span class="project-summary">Finding customer and product insights in seasonal sales data.</span>
+            <span class="project-open-label">Explore project <span class="disclosure-icon" aria-hidden="true">+</span></span>
+          </span>
+        </button>
+        <div class="project-details" id="project-details-sales" aria-hidden="true" inert>
+          <div class="project-details-inner">
+            <p>Explores Diwali sales data with Python to uncover customer and product patterns that can inform business decisions.</p>
+            <div class="tag-list"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span></div>
+            <a class="project-more" href="https://github.com/itstanwar07/Diwali_Sales_Analysis" target="_blank" rel="noopener noreferrer">Learn more <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
       </article>
-      <a class="project-card" href="https://meddoc-hub-project.vercel.app" target="_blank" rel="noopener noreferrer" data-category="web" data-reveal>
-        <div><span class="project-number">04 / WEB</span><h2>MedDoc Hub</h2><p>A medical document management concept for storing and finding research papers and documents.</p></div>
-        <div class="project-bottom"><div class="tag-list"><span class="tag">Java</span><span class="tag">Web app</span></div><span class="card-arrow" aria-hidden="true">↗</span></div>
-      </a>
-      <a class="project-card" href="https://leetcode.com/u/tanwar04/" target="_blank" rel="noopener noreferrer" data-category="algorithms" data-reveal>
-        <div><span class="project-number">05 / ALGORITHMS</span><h2>DSA Practice</h2><p>A growing collection of solutions covering data structures, algorithms, and problem-solving patterns.</p></div>
-        <div class="project-bottom"><div class="tag-list"><span class="tag">Java</span><span class="tag">DSA</span></div><span class="card-arrow" aria-hidden="true">↗</span></div>
-      </a>
+      <article class="project-card disclosure-card" data-category="machine-learning" data-reveal>
+        <button class="project-disclosure-trigger" type="button" aria-expanded="false" aria-controls="project-details-car">
+          <span class="project-art project-art--car" aria-hidden="true">
+            <span class="project-art-label">MODEL / 002</span><span class="art-orbit"><i></i><i></i><i></i></span><span class="art-data">PRICE<br /><b>ESTIMATOR</b></span><span class="project-art-caption">FEATURES → VALUE</span>
+          </span>
+          <span class="project-preview">
+            <span class="project-number">02 / MACHINE LEARNING</span>
+            <span class="project-preview-title">Car Price Predictor</span>
+            <span class="project-summary">Estimating a car’s price from its features with a machine learning model.</span>
+            <span class="project-open-label">Explore project <span class="disclosure-icon" aria-hidden="true">+</span></span>
+          </span>
+        </button>
+        <div class="project-details" id="project-details-car" aria-hidden="true" inert>
+          <div class="project-details-inner">
+            <p>A Python machine learning project that uses car features to estimate vehicle prices.</p>
+            <div class="tag-list"><span class="tag">Python</span><span class="tag">Machine learning</span></div>
+            <a class="project-more" href="https://github.com/itstanwar07/car_price_prediction-ml" target="_blank" rel="noopener noreferrer">Learn more <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="project-card disclosure-card" data-category="web" data-reveal>
+        <button class="project-disclosure-trigger" type="button" aria-expanded="false" aria-controls="project-details-planner">
+          <span class="project-art project-art--planner" aria-hidden="true">
+            <span class="project-art-label">DAILY / 003</span><span class="art-calendar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="project-art-caption">PLAN A LITTLE BETTER</span>
+          </span>
+          <span class="project-preview">
+            <span class="project-number">03 / WEB</span>
+            <span class="project-preview-title">GoWithPlan</span>
+            <span class="project-summary">A planner for tasks, reminders, and keeping track of progress.</span>
+            <span class="project-open-label">Explore project <span class="disclosure-icon" aria-hidden="true">+</span></span>
+          </span>
+        </button>
+        <div class="project-details" id="project-details-planner" aria-hidden="true" inert>
+          <div class="project-details-inner">
+            <p>A web-based planner concept for organizing tasks, setting reminders, and tracking progress.</p>
+            <div class="tag-list"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+            <span class="project-more project-more--unavailable">Project link coming soon</span>
+          </div>
+        </div>
+      </article>
+      <article class="project-card disclosure-card" data-category="web" data-reveal>
+        <button class="project-disclosure-trigger" type="button" aria-expanded="false" aria-controls="project-details-med-doc">
+          <span class="project-art project-art--meddoc" aria-hidden="true">
+            <span class="project-art-label">RESEARCH / 004</span><span class="art-document"><i></i><i></i><i></i><b>+</b></span><span class="project-art-caption">KNOWLEDGE, CONNECTED</span>
+          </span>
+          <span class="project-preview">
+            <span class="project-number">04 / WEB</span>
+            <span class="project-preview-title">MedDoc Hub</span>
+            <span class="project-summary">A concept for organizing and sharing medical research documents.</span>
+            <span class="project-open-label">Explore project <span class="disclosure-icon" aria-hidden="true">+</span></span>
+          </span>
+        </button>
+        <div class="project-details" id="project-details-med-doc" aria-hidden="true" inert>
+          <div class="project-details-inner">
+            <p>A medical document management concept for finding and sharing research papers using keywords, categories, and tags.</p>
+            <div class="tag-list"><span class="tag">Java</span><span class="tag">Web app</span></div>
+            <a class="project-more" href="https://meddoc-hub-project.vercel.app" target="_blank" rel="noopener noreferrer">Learn more <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="project-card disclosure-card" data-category="algorithms" data-reveal>
+        <button class="project-disclosure-trigger" type="button" aria-expanded="false" aria-controls="project-details-dsa">
+          <span class="project-art project-art--dsa" aria-hidden="true">
+            <span class="project-art-label">PRACTICE / 005</span><span class="art-code"><i>&lt;/&gt;</i><b>O(log n)</b><i>{ }</i></span><span class="project-art-caption">THINK · SOLVE · REPEAT</span>
+          </span>
+          <span class="project-preview">
+            <span class="project-number">05 / ALGORITHMS</span>
+            <span class="project-preview-title">DSA Practice</span>
+            <span class="project-summary">A growing collection of data structures and problem-solving practice.</span>
+            <span class="project-open-label">Explore project <span class="disclosure-icon" aria-hidden="true">+</span></span>
+          </span>
+        </button>
+        <div class="project-details" id="project-details-dsa" aria-hidden="true" inert>
+          <div class="project-details-inner">
+            <p>Regularly practicing data structures and algorithms, with a focus on core concepts and problem-solving patterns.</p>
+            <div class="tag-list"><span class="tag">Java</span><span class="tag">DSA</span></div>
+            <a class="project-more" href="https://leetcode.com/u/tanwar04/" target="_blank" rel="noopener noreferrer">Learn more <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
     </div>
   </main>
   <footer class="site-footer"><span>Mayur Tanwar</span><span>Built with curiosity · 2026</span></footer>
-  <script src="portfolio.js"></script>
+  <script src="portfolio.js?v=profile-flip"></script>
+  <script src="cursor.js"></script>
+  <script src="text-effect.js"></script>
 </body>
 </html>

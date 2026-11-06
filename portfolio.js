@@ -13,6 +13,14 @@ staggerItems.forEach(function (item, index) {
 });
 
 var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var initialViewportHeight = window.innerHeight;
+staggerItems.forEach(function (item) {
+  var bounds = item.getBoundingClientRect();
+  if (bounds.top < initialViewportHeight && bounds.bottom > 0) {
+    item.classList.add("is-visible");
+  }
+});
+
 if (prefersReducedMotion) {
   staggerItems.forEach(function (item) { item.classList.add("is-visible"); });
 } else if ("IntersectionObserver" in window) {
@@ -75,6 +83,95 @@ projectFilters.forEach(function (filter) {
     projectCards.forEach(function (card) {
       card.hidden = category !== "all" && card.dataset.category !== category;
     });
+  });
+});
+
+document.querySelectorAll(".project-disclosure-trigger").forEach(function (trigger) {
+  var panel = document.getElementById(trigger.getAttribute("aria-controls"));
+
+  if (!panel) {
+    console.error("Project disclosure panel was not found.", trigger.getAttribute("aria-controls"));
+    return;
+  }
+
+  trigger.addEventListener("click", function () {
+    var expanded = trigger.getAttribute("aria-expanded") === "true";
+    trigger.setAttribute("aria-expanded", String(!expanded));
+    panel.setAttribute("aria-hidden", String(expanded));
+    panel.inert = expanded;
+  });
+
+  trigger.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && trigger.getAttribute("aria-expanded") === "true") {
+      trigger.click();
+      trigger.focus();
+    }
+  });
+});
+
+document.querySelectorAll("[data-profile-card]").forEach(function (card) {
+  var trigger = card.querySelector(".profile-card-front");
+  var details = document.getElementById(trigger.getAttribute("aria-controls"));
+  var closeButton = card.querySelector(".profile-card-close");
+  var focusReturn = card.parentElement;
+  var isPinnedOpen = false;
+  var isPointerOver = false;
+  var hasFocus = false;
+
+  if (!details) {
+    console.error("Profile card details were not found.", trigger.getAttribute("aria-controls"));
+    return;
+  }
+
+  function syncCardState() {
+    var isOpen = isPinnedOpen || isPointerOver || hasFocus;
+    card.classList.toggle("is-flipped", isOpen);
+    trigger.setAttribute("aria-expanded", String(isOpen));
+    details.setAttribute("aria-hidden", String(!isOpen));
+    details.inert = !isOpen;
+  }
+
+  card.addEventListener("pointerenter", function () {
+    isPointerOver = true;
+    syncCardState();
+  });
+
+  card.addEventListener("pointerleave", function () {
+    isPointerOver = false;
+    syncCardState();
+  });
+
+  card.addEventListener("focusin", function () {
+    hasFocus = true;
+    syncCardState();
+  });
+
+  card.addEventListener("focusout", function (event) {
+    if (!card.contains(event.relatedTarget)) {
+      hasFocus = false;
+      syncCardState();
+    }
+  });
+
+  trigger.addEventListener("click", function () {
+    isPinnedOpen = !isPinnedOpen;
+    syncCardState();
+  });
+
+  closeButton.addEventListener("click", function () {
+    isPinnedOpen = false;
+    isPointerOver = false;
+    focusReturn.focus();
+    syncCardState();
+  });
+
+  card.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && card.classList.contains("is-flipped")) {
+      isPinnedOpen = false;
+      isPointerOver = false;
+      focusReturn.focus();
+      syncCardState();
+    }
   });
 });
 
